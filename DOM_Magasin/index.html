@@ -22,36 +22,54 @@
                 <span class="prix">2</span>$
             </span>
             <input type="number" id="inp">
+            <div>
+                <span></span>
+            </div>
         </div>
         <div id="grosse">
             <span>Grosse ration 
                 <span class="prix">8</span>$
             </span>
             <input type="number" id="inp1">
+            <div>
+                <span></span>
+            </div>
         </div>
         <div id="epee">
             <span>Epee
                 <span class="prix">20</span>$
             </span>
             <input type="number" id="inp2">
+            <div>
+                <span></span>
+            </div>
         </div>
         <div id="bouclier">
             <span>Bouclier 
                 <span class="prix">15</span>$
             </span>
             <input type="number" id="inp3">
+            <div>
+                <span></span>
+            </div>
         </div>
         <div id="potion">
             <span>Potion 
                 <span class="prix">5</span>$
             </span>
             <input type="number" id="inp4">
+            <div>
+                <span></span>
+            </div>
         </div>
         <div id="sacdetoile">
             <span>Sac de toile 
                 <span class="prix">1</span>$
             </span>
             <input type="number" id="inp5">
+            <div>
+                <span></span>
+            </div>
         </div>
     </div>
     <div id="argent">
@@ -150,8 +168,6 @@
                     
                     
                 }) //pour vider le panier ainsi que le total
-    
-    
 
         $('#button3').click(function(){
                 
@@ -195,7 +211,13 @@
 
             })
 
-
+        $("#kategoriler input").keyup(function(){
+            var fiyat = 0;
+            if(!isNaN($(this).val())){
+                fiyat = $(this).siblings("span").find(".prix").text() * $(this).val();
+            }
+            $(this).next().text("Ara Toplam:"+fiyat+"$");
+        });
     </script>
 </body>
 </html>

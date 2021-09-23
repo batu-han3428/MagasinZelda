@@ -8,7 +8,7 @@ body
     margin  : 0;
   
     background : rgb(105, 110, 106);
-    background-image: url("../images/zeldaa.gif");
+    background-image: url("/DOM_Magasin/images/zeldaa.gif");
     background-repeat: repeat;
     background-size:cover;
 
