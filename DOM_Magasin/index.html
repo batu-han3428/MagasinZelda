@@ -90,9 +90,10 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
+        var total = 0;
         $("#button").click(function(){
 
-            var total = 0;
+            total = 0;
             var urunSayisi = 0;
 
             $("#kategoriler").find("input").each(function()
@@ -170,13 +171,13 @@
                 }) //pour vider le panier ainsi que le total
 
         $('#button3').click(function(){
-                
-
                 if (total>75)
                 {
                     Swal.fire("Vous n'avez pas assez d'argent"); 
                 }
-                else
+                else if(total <= 0){
+                    Swal.fire("Yetersiz bakiye..."); 
+                }else
                 {
                     Swal.fire({
                                 title: 'Etes-vous sûr de valider le panier ?',
@@ -186,7 +187,7 @@
                                 denyButtonText: `Ne pas valider`,
                                 cancelButtonText: 'Annuler'
                                 }).then((result) => {
-                                
+                               
                                 if (result.isConfirmed) {
                                     Swal.fire('Validé ! Merci de votre achat', '', '');
                                     $("#inp, #inp1, #inp2, #inp3, #inp4, #inp5, #totalspan").val('').text('');
