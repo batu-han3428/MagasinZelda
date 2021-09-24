@@ -98,8 +98,11 @@
 
             $("#kategoriler").find("input").each(function()
             {
-                urunSayisi += parseInt($(this).val());
-
+           
+                if($(this).val() != ""){
+                    urunSayisi += parseInt($(this).val());
+                }
+                  
                 //isNan-->une quantité qui n'est pas un nombre not a number 
                 //.siblings pour cibler les spans
                 if(!isNaN($(this).val())){
@@ -127,6 +130,7 @@
                 }
             })
            
+
             if (urunSayisi>15)
             {
                 Swal.fire('Votre inventaire est plein, vous ne pouvez pas prendre plus de 15 items ! ');
