@@ -91,10 +91,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         var total = 0;
+        var urunSayisi = 0;
         $("#button").click(function(){
 
             total = 0;
-            var urunSayisi = 0;
+            urunSayisi = 0;
 
             $("#kategoriler").find("input").each(function()
             {
@@ -178,6 +179,9 @@
                 if (total>75)
                 {
                     Swal.fire("Vous n'avez pas assez d'argent"); 
+                }
+                else if(urunSayisi > 15){
+                    Swal.fire("En fazla 15 ürün alabilirsiniz.."); 
                 }
                 else if(total <= 0){
                     Swal.fire("Yetersiz bakiye..."); 
